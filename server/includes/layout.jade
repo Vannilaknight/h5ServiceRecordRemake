@@ -1,0 +1,19 @@
+doctype
+html
+    head
+        title Halo 5 Service Record
+        link(href="/favicon.ico", rel="shortcut icon", type="image/x-icon")
+        link(rel="stylesheet", href="/css/bootstrap.css")
+        link(href='/css/datepicker3.css', rel='stylesheet')
+        link(href='/css/styles.css', rel='stylesheet')
+        // Icons
+        script(src='/scripts/lumino.glyphs.js')
+        //if lt IE 9
+        //script(src='js/html5shiv.js')
+        //script(src='js/respond.min.js')
+        link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css')
+        link(rel="stylesheet", href="/vendor/toastr/toastr.css")
+        base(href="/")
+    body(ng-app='app', ng-controller="overlordCtrl")
+        block main-content
+        include scripts
