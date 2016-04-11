@@ -11,6 +11,7 @@ module.exports = {
     },
     production: {
         rootPath: rootPath,
+        rabbit: 'amqp://jncmibao:mRrr17_UqpKdLMYXEj5-nNvROywJOZ3t@hyena.rmq.cloudamqp.com/jncmibao',
         db: 'mongodb://admin:password@ds029615.mlab.com:29615/halo5api',
         port: process.env.PORT || 80
     }

@@ -2,7 +2,7 @@ var magicbus = require('@leisurelink/magicbus');
 
 module.exports = function (config, io, dataMapper) {
 
-    var broker = magicbus.createBroker('h5', 'record', 'amqp://docker.dev:5672/');
+    var broker = magicbus.createBroker('h5', 'record', config.rabbit);
 
     var subscriber = magicbus.createSubscriber(broker);
 
