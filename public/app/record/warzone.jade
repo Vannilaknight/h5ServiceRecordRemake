@@ -5,15 +5,9 @@
                 a(href='/')
                     i.fa.fa-home
             li.active Warzone
-    // /.row
     .row
         .col-lg-12
             h1.page-header Warzone Service Record
-    // /.row
-    .row
-        .col-lg-12
-            h2.text-info Current XP: {{player.warzoneRecord.Result.Xp}}
-        // /.row
     .row
         .col-xs-12.col-md-6.col-lg-3
             .panel.panel-teal.panel-widget
@@ -21,7 +15,7 @@
                     .col-sm-3.col-lg-5.widget-left
                         i.fa.fa-dot-circle-o.fa-4x
                     .col-sm-9.col-lg-7.widget-right
-                        .large {{player.warzoneRecord.Result.WarzoneStat.TotalKills/player.warzoneRecord.Result.WarzoneStat.TotalDeaths | number:2}}
+                        .large {{warzoneData.TotalKills/warzoneData.TotalDeaths | number:2}}
                         .text-muted Kill/Death Ratio
         .col-xs-12.col-md-6.col-lg-3
             .panel.panel-red.panel-widget
@@ -29,7 +23,7 @@
                     .col-sm-3.col-lg-5.widget-left
                         i.fa.fa-trophy.fa-4x
                     .col-sm-9.col-lg-7.widget-right
-                        .large {{player.warzoneRecord.Result.WarzoneStat.TotalGamesWon/player.warzoneRecord.Result.WarzoneStat.TotalGamesLost | number:2}}
+                        .large {{warzoneData.TotalGamesWon/warzoneData.TotalGamesLost | number:2}}
                         .text-muted Win/Loss Ratio
         .col-xs-12.col-md-6.col-lg-3
             .panel.panel-orange.panel-widget
@@ -37,7 +31,7 @@
                     .col-sm-3.col-lg-5.widget-left
                         i.fa.fa-crosshairs.fa-4x
                     .col-sm-9.col-lg-7.widget-right
-                        .large {{player.warzoneRecord.Result.WarzoneStat.TotalShotsLanded/player.warzoneRecord.Result.WarzoneStat.TotalShotsFired | percentage:2}}
+                        .large {{warzoneData.TotalShotsLanded/warzoneData.TotalShotsFired | percentage:2}}
                         .text-muted Accuracy
         .col-xs-12.col-md-6.col-lg-3
             .panel.panel-blue.panel-widget
@@ -45,16 +39,16 @@
                     .col-sm-3.col-lg-5.widget-left
                         i.fa.fa-clock-o.fa-4x
                     .col-sm-9.col-lg-7.widget-right
-                        .medium {{player.warzoneRecord.Result.WarzoneStat.TotalTimePlayed | timePlayed}}
+                        .medium {{warzoneData.TotalTimePlayed | timePlayed}}
                         .text-muted Total Time Played
     // /.row
     .row
         .col-lg-12
             .panel.panel-default
-                .panel-heading Site Traffic Overview
+                .panel-heading Recent Warzone Games
                 .panel-body
                     .canvas-wrapper
-                        canvas#line-chart.main-chart(height='200', width='600')
+                        canvas#warzone-chart.main-chart(height='200', width='600')
     // /.row
     .row
         .col-xs-6.col-md-3

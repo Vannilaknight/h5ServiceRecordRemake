@@ -1,36 +1,37 @@
 extends ../includes/layout
 
 block main-content
-    nav.navbar.navbar-inverse.navbar-fixed-top(role='navigation')
-        .container-fluid
-            .navbar-header
-                button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#sidebar-collapse')
-                    span.sr-only Toggle navigation
-                    span.icon-bar
-                    span.icon-bar
-                    span.icon-bar
-                a.navbar-brand(href='#')
-                    span Halo 5
-                    | Service Record
-    #sidebar-collapse.col-sm-3.col-lg-2.sidebar
-        form(role='search')
-            .form-group
-                input.form-control(type='text', placeholder='Search')
-        h3 {{player.arenaRecord.Id || Loading...}}
-        h3
-            small  Rank: {{player.warzoneRecord.Result.SpartanRank || Loading...}}
-        ul.nav.menu
-            li(ng-class="getClass('/arenaRecord')")
-                a(href='/arenaRecord')
-                    svg.glyph.stroked.dashboard-dial
-                        use(xlink:href='#stroked-dashboard-dial')
-                    |  Arena
-            li(ng-class="getClass('/warzoneRecord')")
-                a(href='/warzoneRecord')
-                    svg.glyph.stroked.calendar
-                        use(xlink:href='#stroked-calendar')
-                    |  Warzone
-    // /.sidebar
-    section.content
-        div(ng-view)
-
+    div(ng-hide="!firstPing")
+        nav.navbar.navbar-inverse.navbar-fixed-top(role='navigation')
+            .container-fluid
+                .navbar-header
+                    button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#sidebar-collapse')
+                        span.sr-only Toggle navigation
+                        span.icon-bar
+                        span.icon-bar
+                        span.icon-bar
+                    a.navbar-brand(href='#')
+                        span Halo 5
+                        | Service Record
+        #sidebar-collapse.col-sm-3.col-lg-2.sidebar
+            form(role='search')
+                .form-group
+                    input.form-control(type='text', placeholder='Search')
+            h3 {{profileData.gamertag || Loading...}}
+            h3
+                small  Rank: {{profileData.spartanRank || Loading...}}
+            ul.nav.menu
+                li(ng-class="getClass('/arenaRecord')")
+                    a(href='/arenaRecord')
+                        span.ft.icon-capture-the-flag-8c8c85e71b734ecbbd95b14a5d802458 &#xe801;
+                        |   Arena
+                li(ng-class="getClass('/warzoneRecord')")
+                    a(href='/warzoneRecord')
+                        span.ft.icon-warzone-923f801e29374c6296e46515713da3c3 &#xe800;
+                        |   Warzone
+        // /.sidebar
+        section.content
+            div(ng-view)
+    div(ng-hide="firstPing")
+        div.absolute-center
+            span.ft.ft-big.animate-spin &#xe802;

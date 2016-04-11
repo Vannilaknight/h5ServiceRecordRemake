@@ -17,7 +17,9 @@ require('./server/config/passport')();
 
 require('./server/config/routes')(app);
 
-require('./server/config/sockets')(config, io);
+var dataMapper = require('./server/utilities/h5Mapper');
+
+require('./server/config/sockets')(config, io, dataMapper);
 
 http.listen(config.port, function(){
     console.log('Listening on port ' + config.port + '...');
