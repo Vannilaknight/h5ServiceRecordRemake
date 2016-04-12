@@ -28,7 +28,7 @@ setInterval(function() {
             console.log(body) // Show the HTML for the Google homepage.
         }
     })
-}, 1000); // every 5 minutes (300000)
+}, 300000); // every 5 minutes (300000)
 
 http.listen(config.port, function(){
     console.log('Listening on port ' + config.port + '...');
